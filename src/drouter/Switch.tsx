@@ -1,7 +1,7 @@
 import React from 'react';
 import { Switch as RealSwitch, useLocation } from 'react-router-dom'
 import { SwitchProps } from 'react-router'
-import { Route, routesObj, RouteType } from "./index";
+import { Route, definedRoutes, RouteType } from "./index";
 
 
 const search = (name: string, routes: RouteType[]): string => {
@@ -13,7 +13,7 @@ const search = (name: string, routes: RouteType[]): string => {
 }
 
 const get = (name: string, params?: { [key: string]: string }): string => {
-    let path: string = search(name, routesObj)
+    let path: string = search(name, definedRoutes)
 
     return params
         ? Object.keys(params).length > 0
@@ -44,7 +44,7 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
         return ""
     }
 
-    searchMatch(routesObj, '')
+    searchMatch(definedRoutes, '')
 
     return (
         <RealSwitch {...props}>

@@ -9,8 +9,8 @@ export type RouteType = {
     children?: RouteType[]
 }
 
-export let routesObj: RouteType[]
+export let definedRoutes: RouteType[]
 
 export const setRoutes = (routes: RouteType[]) => {
-    routesObj = routes
+    definedRoutes = routes
 }
