@@ -14,18 +14,16 @@ const search = (name: string, routes: RouteType[]): string => {
     return ""
 }
 
-const get = (name: string, params?: { [key: string]: string }): string => {
-    let path: string = search(name, definedRoutes)
+const get = (name: string, params: { [key: string]: string }): string => {
+    const path: string = search(name, definedRoutes)
 
-    return params
-        ? Object.keys(params).length > 0
-            ? [path].concat(Object.keys(params)
-                .sort((a: string, b: string) => b.length - a.length))
-                .reduce((p: string, c: string) => {
-                    return p.replace(`:${c}`, params[c])
-                })
-            : [][1]
-        : path;
+    return Object.keys(params).length > 0
+        ? [path].concat(Object.keys(params)
+            .sort((a: string, b: string) => b.length - a.length))
+            .reduce((p: string, c: string) => {
+                return p.replace(`:${c}`, params[c])
+            })
+        : path
 };
 
 const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
@@ -71,8 +69,7 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
                                 ? cloned.path
                                 : cloned.path[0]
                             : Math.random()
-                        }
-                               {...cloned}/>
+                        } {...cloned}/>
                     )
                 })}
         </RealSwitch>

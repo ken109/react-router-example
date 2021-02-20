@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import Topic from "./Topic";
+import { Topic } from "./index";
 import { Route, Switch } from "../router";
 
 const Topics: React.FC = () => {
