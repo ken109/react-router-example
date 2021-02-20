@@ -1,7 +1,8 @@
 import React from 'react';
 import { Switch as RealSwitch, useLocation } from 'react-router-dom'
 import { SwitchProps } from 'react-router'
-import { Route, definedRoutes, RouteType } from "./index";
+import { definedRoutes, Route, RouteType } from "./index";
+import { RouteProps } from "./Route";
 
 
 const search = (name: string, routes: RouteType[]): string => {
@@ -48,23 +49,25 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
 
     return (
         <RealSwitch {...props}>
-            {React.Children.map<any, any>(props.children, value => {
-                let cloned = {...value.props}
+            {React.Children.map<React.ReactElement<RouteProps>, any>(
+                props.children,
+                (value: React.ReactElement<RouteProps>) => {
+                    let cloned = {...value.props}
 
-                if (!value.props.path && value.props.name) {
-                    cloned = {...value.props, path: get(value.props.name, params)}
-                }
+                    if (!value.props.path && value.props.name) {
+                        cloned = {...value.props, path: get(value.props.name, params)}
+                    }
 
-                return (
-                    <Route key={cloned.path
-                               ? typeof cloned.path === 'string'
-                                   ? cloned.path
-                                   : cloned.path[0]
-                               : Math.random()
-                           }
-                           {...cloned}/>
-                )
-            })}
+                    return (
+                        <Route key={cloned.path
+                            ? typeof cloned.path === 'string'
+                                ? cloned.path
+                                : cloned.path[0]
+                            : Math.random()
+                        }
+                               {...cloned}/>
+                    )
+                })}
         </RealSwitch>
     );
 }
