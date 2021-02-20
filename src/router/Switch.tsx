@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Switch as RealSwitch, useLocation } from 'react-router-dom'
 import { SwitchProps } from 'react-router'
 import { definedRoutes, Route, RouteType } from "./index";
 import { RouteProps } from "./Route";
+import { ParamsContext, ParamsType } from "./Router";
 
 
 const search = (name: string, routes: RouteType[]): string => {
@@ -29,7 +30,9 @@ const get = (name: string, params?: { [key: string]: string }): string => {
 
 const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
     const location = useLocation()
-    let params: { [key: string]: string } | undefined
+    const setParams = useContext(ParamsContext)[1]
+
+    let params: ParamsType = {}
 
     const searchMatch = (routes: RouteType[], now: string): string => {
         for (const route of routes) {
@@ -40,12 +43,16 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
                 .filter(v => v)
                 .map((v: string) => v[0] !== ':' ? v : `(?<${v.slice(1)}>[^/]*)`)
                 .join('\\/')}/?$`))
-            if (match) params = match.groups
+            if (match && match.groups) params = match.groups
         }
         return ""
     }
 
     searchMatch(definedRoutes, '')
+
+    useEffect(() => {
+        setParams(params)
+    }, [setParams])
 
     return (
         <RealSwitch {...props}>

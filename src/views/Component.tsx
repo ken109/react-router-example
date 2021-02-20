@@ -1,8 +1,8 @@
 import React from 'react';
-import { useParams } from "react-router-dom";
+import { useParams } from "../router";
 
 const Component: React.FC = () => {
-    let params = useParams<{ topicId: string, componentId: string }>();
+    let params = useParams();
     return <h3>{params.topicId}: {params.componentId}</h3>;
 }
 

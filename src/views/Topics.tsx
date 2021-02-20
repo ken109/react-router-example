@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import Topic from "./Topic";
-import { Route, Switch } from "../drouter";
+import { Route, Switch } from "../router";
 
 const Topics: React.FC = () => {
     return (

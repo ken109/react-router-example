@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom'
 import { About, Home, Topics } from "./views";
-import { Route, Router, Switch } from "./drouter";
+import { Route, Router, Switch } from "./router";
 
 
 const App: React.FC = () => {

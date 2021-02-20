@@ -1,4 +1,4 @@
-import { RouteType } from "./drouter";
+import { RouteType } from "./router";
 
 
 export const routes: RouteType[] = [
