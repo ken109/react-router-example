@@ -13,9 +13,7 @@ const search = (name: string, routes: RouteType[]): string => {
 }
 
 const get = (name: string, params?: { [key: string]: string }): string => {
-    let path: string = search(name, routesObj.routes)
-
-    if (params) console.log([path].concat(Object.keys(params)))
+    let path: string = search(name, routesObj)
 
     return params
         ? Object.keys(params).length > 0
@@ -46,7 +44,7 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
         return ""
     }
 
-    searchMatch(routesObj.routes, '')
+    searchMatch(routesObj, '')
 
     return (
         <RealSwitch {...props}>
@@ -58,8 +56,7 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
                 }
 
                 return (
-                    <Route exact={true}
-                           key={cloned.path
+                    <Route key={cloned.path
                                ? typeof cloned.path === 'string'
                                    ? cloned.path
                                    : cloned.path[0]

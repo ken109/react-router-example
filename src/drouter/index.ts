@@ -9,17 +9,8 @@ export type RouteType = {
     children?: RouteType[]
 }
 
-class Routes {
-    public routes: RouteType[]
-
-    constructor(routes: RouteType[]) {
-        this.routes = routes
-    }
-
-}
-
-export let routesObj: Routes
+export let routesObj: RouteType[]
 
 export const setRoutes = (routes: RouteType[]) => {
-    routesObj = new Routes(routes)
+    routesObj = routes
 }
