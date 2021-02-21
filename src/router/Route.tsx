@@ -1,6 +1,6 @@
 import React from 'react';
-import { Route as RealRoute } from "react-router-dom"
 import { RouteProps as RealRouteProps } from "react-router";
+import { Route as RealRoute } from "react-router-dom"
 
 
 export interface RouteProps extends RealRouteProps {

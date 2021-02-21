@@ -1,8 +1,9 @@
 import React, { useContext } from 'react';
 import { Link as RealLink, LinkProps as RealLinkProps } from "react-router-dom";
-import { getPath } from "./getRoute";
-import { ParamsContext, ParamsType } from "./Router";
 import * as H from "history";
+
+import { getPath } from "./getPath";
+import { ParamsContext, ParamsType } from "./Router";
 
 
 export interface LinkProps<S = H.LocationState> extends Partial<RealLinkProps<S>> {

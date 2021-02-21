@@ -1,10 +1,11 @@
 import React, { useContext, useEffect } from 'react';
-import { Switch as RealSwitch, useLocation } from 'react-router-dom'
 import { SwitchProps } from 'react-router'
+import { Switch as RealSwitch, useLocation } from 'react-router-dom'
+
 import { definedRoutes, Route, RouteType } from "./index";
-import { RouteProps } from "./Route";
+import { getPath } from "./getPath";
 import { ParamsContext, ParamsType } from "./Router";
-import { getPath } from "./getRoute";
+import { RouteProps } from "./Route";
 
 
 let _before: string = ''
