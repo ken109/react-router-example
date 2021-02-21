@@ -9,13 +9,13 @@ const App: React.FC = () => {
             <div>
                 <ul>
                     <li>
-                        <Link name="home">Home</Link>
+                        <Link to={{name: 'home'}}>Home</Link>
                     </li>
                     <li>
-                        <Link name="about">About</Link>
+                        <Link to={{name: 'about'}}>About</Link>
                     </li>
                     <li>
-                        <Link name="topics">Topics</Link>
+                        <Link to={{name: 'topics'}}>Topics</Link>
                     </li>
                 </ul>
 
