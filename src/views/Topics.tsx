@@ -24,6 +24,9 @@ const Topics: React.FC = () => {
           the page that is shown when no topic is selected */}
             <Switch>
                 <Route name="topic" component={Topic}/>
+                <Route name="topics">
+                    <h3>Please select a topic.</h3>
+                </Route>
             </Switch>
         </div>
     );

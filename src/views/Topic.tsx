@@ -25,7 +25,7 @@ const Topic: React.FC = () => {
             {/*<View/>*/}
             <Switch>
                 <Route name="component" component={Component}/>
-                <Route name="component_top">
+                <Route name="topic">
                     <h3>Please select a component.</h3>
                 </Route>
             </Switch>

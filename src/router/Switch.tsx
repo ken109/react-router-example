@@ -17,14 +17,18 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
 
     const searchMatch = (routes: RouteType[], now: string): string => {
         for (const route of routes) {
-            const path = route.children ? searchMatch(route.children, now + route.path) : now + route.path
-            const match = location.pathname.match(new RegExp(
-                `^\\/${path
+            const paths = route.children
+                ? [now + route.path, searchMatch(route.children, now + route.path)]
+                : [now + route.path]
+            for (const path of paths) {
+                const match = location.pathname.match(new RegExp(
+                    `^\\/${path
                 .split('/')
                 .filter(v => v)
                 .map((v: string) => v[0] !== ':' ? v : `(?<${v.slice(1)}>[^/]*)`)
                 .join('\\/')}/?$`))
-            if (match && match.groups) params = match.groups
+                if (match && match.groups) params = match.groups
+            }
         }
         return ""
     }

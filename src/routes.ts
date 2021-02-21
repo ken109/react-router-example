@@ -19,10 +19,6 @@ export const routes: RouteType[] = [
                 path: '/:topicId',
                 children: [
                     {
-                        name: 'component_top',
-                        path: '/'
-                    },
-                    {
                         name: 'component',
                         path: '/:componentId'
                     }
