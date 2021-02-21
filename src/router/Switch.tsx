@@ -4,27 +4,8 @@ import { SwitchProps } from 'react-router'
 import { definedRoutes, Route, RouteType } from "./index";
 import { RouteProps } from "./Route";
 import { ParamsContext, ParamsType } from "./Router";
+import { getPath } from "./getRoute";
 
-
-const search = (name: string, routes: RouteType[]): string => {
-    for (const route of routes) {
-        if (route.name === name) return route.path
-        else if (route.children) return route.path + search(name, route.children)
-    }
-    return ""
-}
-
-const get = (name: string, params: { [key: string]: string }): string => {
-    const path: string = search(name, definedRoutes)
-
-    return Object.keys(params).length > 0
-        ? [path].concat(Object.keys(params)
-            .sort((a: string, b: string) => b.length - a.length))
-            .reduce((p: string, c: string) => {
-                return p.replace(`:${c}`, params[c])
-            })
-        : path
-};
 
 let _before: string = ''
 let params: ParamsType = {}
@@ -60,11 +41,11 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
         <RealSwitch {...props}>
             {React.Children.map<React.ReactElement<RouteProps>, any>(
                 props.children,
-                (value: React.ReactElement<RouteProps>) => {
-                    let cloned = {...value.props}
+                (child: React.ReactElement<RouteProps>) => {
+                    let cloned = {...child.props}
 
-                    if (!value.props.path && value.props.name) {
-                        cloned = {...value.props, path: get(value.props.name, params)}
+                    if (!child.props.path && child.props.name) {
+                        cloned = {...child.props, path: getPath(child.props.name, params)}
                     }
 
                     return (

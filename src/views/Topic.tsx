@@ -11,10 +11,10 @@ const Topic: React.FC = () => {
 
             <ul>
                 <li>
-                    <Link to={`/topics/components/app`}>App</Link>
+                    <Link name="component" params={{componentId: 'app'}}>App</Link>
                 </li>
                 <li>
-                    <Link to={`/topics/components/second`}>Second</Link>
+                    <Link name="component" params={{componentId: 'second'}}>Second</Link>
                 </li>
             </ul>
 
