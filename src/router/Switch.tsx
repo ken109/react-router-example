@@ -15,7 +15,7 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
     const location = useLocation()
     const [, setParams] = useContext(ParamsContext)
 
-    const searchMatch = (routes: RouteType[], now: string): string => {
+    const searchMatch = (routes: RouteType[] = definedRoutes, now: string = ''): string => {
         for (const route of routes) {
             const paths = route.children
                 ? [now + route.path, searchMatch(route.children, now + route.path)]
@@ -33,7 +33,7 @@ const Switch: React.FC<SwitchProps> = (props: SwitchProps) => {
         return ""
     }
 
-    searchMatch(definedRoutes, '')
+    searchMatch()
 
     useEffect(() => {
         if (_before !== JSON.stringify(params)) {
