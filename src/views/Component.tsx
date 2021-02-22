@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from "../router";
+import { useParams } from "@ken109/react-router";
 
 const Component: React.FC = () => {
     const params = useParams();

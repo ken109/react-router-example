@@ -1,6 +1,6 @@
 import React from "react";
 import { About, Home, Topics } from "./views";
-import { Link, Route, Router, Switch } from "./router";
+import { Link, Route, Router, Switch } from "@ken109/react-router";
 
 
 const App: React.FC = () => {

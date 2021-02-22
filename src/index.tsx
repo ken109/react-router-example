@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { setRoutes } from "./router";
+import { setRoutes } from "@ken109/react-router";
 import { routes } from "./routes";
 
 setRoutes(routes)

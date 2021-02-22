@@ -1,6 +1,6 @@
 import React from 'react';
 import { Component } from "./index";
-import { Link, Route, Switch, useParams } from "../router";
+import { Link, Route, Switch, useParams } from "@ken109/react-router";
 
 const Topic: React.FC = () => {
     let params = useParams()
