@@ -1382,10 +1382,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^4.0.0"
 
-"@ken109/react-router@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@ken109/react-router/-/react-router-1.0.3.tgz#86902dc269092e7c16dcb88d9c1ef70c8b32cad6"
-  integrity sha512-YMPQGnyrk4NaUhENXaYkRSY2A+p4w2mupZCzvj+Osuxwa61NEgMoPBpuxvTasYusfToH+UYd+fODlKoycFiqnA==
+"@ken109/react-router@^1.0.5":
+  version "1.0.5"
+  resolved "https://registry.yarnpkg.com/@ken109/react-router/-/react-router-1.0.5.tgz#4a8e0939d21313567322f0c49b2da51fb9c7bf17"
+  integrity sha512-CyKTVt61TCugpdD4z80H4PKsn3HRu53i+n2dC69U+YdZM0bdI52NKJ0pr4rx0sljO1w2j5cOTUenUXkyiV1AQw==
   dependencies:
     react "^17.0.1"
     react-router-dom "^5.2.0"

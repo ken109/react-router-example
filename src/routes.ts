@@ -1,4 +1,4 @@
-import { RouteType } from "./router";
+import { RouteType } from "@ken109/react-router";
 
 
 export const routes: RouteType[] = [
